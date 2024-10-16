@@ -16,8 +16,6 @@ import PageFlip from "./pages/pageFlip/pageFlip";
 function App() {
   return (
     <>
-      {/* <NavbarWithSubmenu />
-      <Homepage /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />}>

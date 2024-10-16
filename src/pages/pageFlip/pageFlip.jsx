@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Button } from "@material-tailwind/react";
 
 import HTMLFlipBook from "react-pageflip";
-import "./PageFlip.css";
+import "./pageFlip.css";
 import ComicImages from "../../assets/ComicImages/ComicImagesSmaller";
 import PageOne from "./Comicpages/Page1/Page1";
 import PageTwo from "./Comicpages/Page2/Page2";
