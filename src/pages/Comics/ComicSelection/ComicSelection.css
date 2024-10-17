@@ -1,0 +1,26 @@
+.test {
+  background-color: blue;
+  margin: 5px;
+}
+
+.test-con {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.test1 {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+  left: 5px;
+}
+
+.test2 {
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.test4 {
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
+}
+
+.test5 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
+}

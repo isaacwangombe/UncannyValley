@@ -9,11 +9,13 @@ import "./index.css";
 
 import { ThemeProvider } from "@material-tailwind/react";
 import PageFlip from "./pages/pageFlip/pageFlip.jsx";
+import NewHomePage from "./pages/NewHomePage/NewHomePage";
+import ComicSelection from "./pages/Comics/ComicSelection/ComicSelection";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage />,
+    element: <ComicSelection />,
   },
   {
     path: "all-comics",

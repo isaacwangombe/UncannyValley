@@ -1,0 +1,46 @@
+.pane1 {
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+  background-color: red;
+  top: 50px;
+}
+.pane3 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+  background-color: blueviolet;
+  z-index: -2;
+  top: 50px;
+}
+
+.pane2 {
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+  background-color: blue;
+  bottom: 50px;
+}
+
+.pane4 {
+  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+
+  background-color: orange;
+  z-index: -2;
+  bottom: 50px;
+}
+
+.home-container {
+  padding: 0px 10px 0px 10px;
+  border: 2px solid #ccc;
+  max-height: 750px;
+  background-color: rgb(252, 239, 217);
+  /* background: white; */
+  background-image: radial-gradient(#5e5e5e4b 1px, transparent 0);
+  background-size: 4px 4px;
+  background-position: -19px -19px;
+}
+
+.cont {
+  max-height: 900px;
+  width: 80vw;
+  margin-top: 20px;
+}
+
+.homepage-img {
+  filter: brightness(70%); /* Keeps the image darker */
+}
