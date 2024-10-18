@@ -15,7 +15,7 @@ import ComicSelection from "./pages/Comics/ComicSelection/ComicSelection";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ComicSelection />,
+    element: <PageFlip />,
   },
   {
     path: "all-comics",

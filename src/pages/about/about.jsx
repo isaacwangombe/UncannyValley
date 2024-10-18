@@ -1,6 +1,6 @@
 // App.js
 import React from "react";
-import ComicImagesSmaller from "./../../assets/ComicImages/ComicImagesSmaller";
+import ComicImagesSmaller from "../../assets/ComicImages/ComicImagesSmaller";
 import ComicImages from "../../assets/ComicImages/ComicImagesSmaller";
 import Categories from "../../assets/ComicImages/CategoriesList";
 

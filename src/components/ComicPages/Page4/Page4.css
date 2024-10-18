@@ -1,7 +1,6 @@
 .test {
   background-color: blue;
   margin: 5px;
-  width: 85vw;
 }
 
 .side1-container {
@@ -73,19 +72,4 @@
 .page-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.item {
-  border: 5px solid black;
-  background-color: rgb(255, 255, 255);
-  height: 30vh;
-  overflow: hidden;
-}
-
-.item-small {
-  border: 5px solid black;
-  background-color: rgb(255, 255, 255);
-  height: 15vh;
-  overflow: hidden;
-  margin: 5px 0px 5px 0px;
 }

@@ -1,9 +1,10 @@
-.screen-container {
+.screen2-container {
   height: 88vh;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
   padding: 10px;
+  background-color: white;
 }
 
 .screen2-cont1 {
@@ -36,20 +37,3 @@
   height: 100%;
   object-fit: cover;
 }
-
-.cont {
-  max-height: 900px;
-  width: 80vw;
-  /* overflow: hidden; */
-  margin-top: 20px;
-}
-/* 
-@media only screen and (max-width: 600px) {
-  .stf__wrapper {
-    visibility: hidden;
-  }
-}
-
-.test {
-  visibility: visible;
-} */

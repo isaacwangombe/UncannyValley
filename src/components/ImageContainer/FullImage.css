@@ -1,0 +1,15 @@
+.size-test {
+  container-type: inline-size;
+  container-name: sidebar;
+}
+.texts {
+  color: blue;
+  font: 0.5em sans-serif;
+}
+
+@container (min-width: 50px) {
+  .texts {
+    font-size: 2em;
+    color: red;
+  }
+}

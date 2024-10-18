@@ -9,6 +9,9 @@ import PageOne from "./Comicpages/Page1/Page1";
 import PageTwo from "./Comicpages/Page2/Page2";
 import PageThree from "./Comicpages/Page3/Page3";
 import NavbarWithSubmenu from "./../../components/navbar/navbar";
+import Page1 from "./../../components/ComicPages/Page1/Page1";
+import Page2 from "./../../components/ComicPages/Page2/Page2";
+import Page3 from "./../../components/ComicPages/Page3/Page3";
 
 const PageFlip = () => {
   const book = useRef();
@@ -50,8 +53,8 @@ const PageFlip = () => {
           width={500}
           height={1000}
           size="stretch"
-          showCover={false}
-          usePortrait={false}
+          showCover={true}
+          usePortrait={true}
           swipeDistance={0}
           // autoSize={false}
           useMouseEvents={false}
@@ -75,13 +78,13 @@ const PageFlip = () => {
             let PageComponent;
             switch (namesToShow) {
               case 7:
-                PageComponent = PageOne;
+                PageComponent = Page1;
                 break;
               case 6:
-                PageComponent = PageTwo;
+                PageComponent = Page2;
                 break;
               case 8:
-                PageComponent = PageThree;
+                PageComponent = Page3;
                 break;
               default:
                 return null; // Fallback
@@ -89,8 +92,8 @@ const PageFlip = () => {
 
             // Render the FlipPage component with the available images
             const pageComponent = (
-              <div className="">
-                <PageComponent key={pageIndex} images={imagesForPage} />
+              <div className="test">
+                <PageComponent key={pageIndex} content={imagesForPage} />
 
                 {/* <PageTwo
                 key={pageIndex}
