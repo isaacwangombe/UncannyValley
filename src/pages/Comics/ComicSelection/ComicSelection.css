@@ -3,24 +3,73 @@
   margin: 5px;
 }
 
-.test-con {
+.side1-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.cont {
+  max-height: 900px;
+  width: 80vw;
+  margin-top: 20px;
+}
+
+.panel-1 {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  top: 30px;
+}
+
+.panel-2 {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  top: 10px;
+}
+.panel-2::before {
+  content: "";
+  position: absolute;
+
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  border: 1px solid white;
+}
+
+.panel-3 {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+}
+
+.panel-4 {
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+.panel-5 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+  top: 20px;
+}
+
+.panel-6 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+  top: 0px;
+}
+/* .panel-6::before {
+  content: "";
+  position: absolute;
+
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  border: 1px solid white;
+} */
+
+.panel-con2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.test1 {
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
-  left: 5px;
-}
-
-.test2 {
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.test4 {
-  clip-path: polygon(0 0, 95% 0, 100% 100%, 0 100%);
-}
-
-.test5 {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
