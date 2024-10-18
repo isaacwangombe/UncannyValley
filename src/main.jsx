@@ -8,18 +8,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import { ThemeProvider } from "@material-tailwind/react";
-import PageFlip from "./pages/pageFlip/pageFlip.jsx";
 import NewHomePage from "./pages/NewHomePage/NewHomePage";
 import ComicSelection from "./pages/Comics/ComicSelection/ComicSelection";
+import AllComics from "./pages/Comics/AllComics/AllComics.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PageFlip />,
+    element: <ComicSelection />,
   },
   {
     path: "all-comics",
-    element: <PageFlip />,
+    element: <AllComics />,
   },
 ]);
 

@@ -13,3 +13,7 @@
     color: red;
   }
 }
+
+.justify-between {
+  justify-content: center !important;
+}

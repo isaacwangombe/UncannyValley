@@ -1,70 +1,72 @@
 const ComicCategories = [
-  { id: 1,
+  { Id: 1,
     Name: "DC",
     Image: ""
   },
-  { id: 2,
+  { Id: 2,
     Name: "Marvel",
     Image: ""
   },
-  { id: 3,
+  { Id: 3,
     Name: "African",
     Image: ""
   },
-  { id: 4,
+  { Id: 4,
     Name: "Kenyan",
     Image: ""
   },
-  { id: 5,
+  { Id: 5,
     Name: "Image",
     Image: ""
   },
-  { id: 6,
-    Name: "IDW",
+  { Id: 6,
+    Name: "IdW",
     Image: ""
   },
-  { id: 7,
+  { Id: 7,
     Name: "Konkret",
     Image: ""
   },
-  { id: 8,
+  { Id: 8,
     Name: "Kolanut",
     Image: ""
   },
-  { id: 9,
+  { Id: 9,
     Name: "Vertigo",
     Image: ""
   },
-  { id: 10,
+  { Id: 10,
     Name: "Dark Horse",
     Image: ""
   },
-  { id: 11,
+  { Id: 11,
     Name: "Dynamite",
     Image: ""
   },
-  { id: 12,
+  { Id: 12,
     Name: "Wildstorm",
     Image: ""
   },
-  { id: 13,
+  { Id: 13,
     Name: "Powerverse",
     Image: ""
   },
-  { id: 14,
+  { Id: 14,
     Name: "133ART",
     Image: ""
   },
-  { id: 15,
+  { Id: 15,
     Name: "Uncanny Valley",
     Image: ""
   },
-  { id: 16,
-    Name: "DC",
+  { Id: "",
+    Name: "All",
     Image: ""
   },
-  { id: 17,
+  { Id: 17,
     Name: "DC",
     Image: ""
   },
 ]
+
+export default ComicCategories;

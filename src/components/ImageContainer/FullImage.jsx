@@ -26,9 +26,9 @@ const FullImage = ({
         alt="nature image"
       />
       <figcaption
-        className={`absolute ${
+        className={`absolute content-center ${
           textBottom ? textBottom : "bottom-24"
-        } rounded-xl  left-2/4 flex flex w-[calc(100%)] -translate-x-2/4 justify-between  border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm`}
+        } rounded-xl  left-2/4 flex flex w-[calc(100%)] -translate-x-2/4 justify-between  border border-white bg-white/75 py-4 px-2 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm`}
       >
         <div className="">
           <Typography variant="h5" color="" className={heading ? "" : "hidden"}>
@@ -36,7 +36,7 @@ const FullImage = ({
           </Typography>
           <Typography
             color="blue-gray"
-            className={`font-normal texts ${description ? "" : "hidden"}`}
+            className={`font-normal texts  ${description ? "" : "hidden"}`}
           >
             {description}
           </Typography>

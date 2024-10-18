@@ -6,3 +6,8 @@
 nav {
   box-shadow: 0px 0px !important;
 }
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+}

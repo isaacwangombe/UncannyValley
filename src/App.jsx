@@ -11,7 +11,7 @@ import NavbarWithSubmenu from "./components/navbar/navbar";
 import RightDrawer from "./components/drawer/drawer";
 import CartItems from "./components/cartItems/cartItems";
 import About from "./pages/about/about";
-import PageFlip from "./pages/pageFlip/pageFlip";
+import AllComics from "./pages/Comics/AllComics/AllComics";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />}>
-            <Route path="all-comics" element={<PageFlip />} />
+            <Route path="all-comics" element={<AllComics />} />
           </Route>
         </Routes>
       </BrowserRouter>
