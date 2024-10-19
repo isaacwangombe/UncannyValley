@@ -1,15 +1,18 @@
 import React from "react";
 import { Typography, Button } from "@material-tailwind/react";
 import "./FullImage.css";
+import { Link } from "react-router-dom";
 
 const FullImage = ({
   style,
   height,
+  fit,
   textBottom,
   image,
   heading,
   description,
   price,
+  linkTo,
   buttonText,
 }) => {
   return (
@@ -17,7 +20,7 @@ const FullImage = ({
       className={`relative w-full ${height ? height : " h-96 "} ${style}`}
     >
       <img
-        className="h-full w-full  object-fit object-center"
+        className={`h-full w-full ${fit ? fit : "object-fit"}  object-center`}
         src={
           image
             ? image
@@ -46,9 +49,17 @@ const FullImage = ({
           >
             {price}
           </Typography>
-          <Button color="blue" className="">
-            {buttonText}
-          </Button>
+          {linkTo ? (
+            <Link to={linkTo}>
+              <Button color="blue" className="mt-4 ">
+                {buttonText}
+              </Button>
+            </Link>
+          ) : (
+            <Button color="blue" className="">
+              {buttonText}
+            </Button>
+          )}
         </div>
       </figcaption>
     </figure>

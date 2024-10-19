@@ -1,5 +1,6 @@
 import React from "react";
 import FullImage from "../../ImageContainer/FullImage";
+import AllComics from "../../../pages/Comics/AllComics/AllComics";
 
 const Page5 = ({ content }) => {
   return (
@@ -12,6 +13,7 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[0].Image}
                 heading={content[0].Name}
+                linkTo={AllComics}
                 buttonText={"Explore"}
               />
             ) : (
@@ -24,35 +26,7 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[1].Image}
                 heading={content[1].Name}
-                buttonText={"Explore"}
-              />
-            ) : (
-              <div className="blank-image"></div> // Blank div when image is not available
-            )}
-          </div>
-        </div>
-        <div className="">
-          <div className="item-small">
-            {content[2] && content[2].Image ? (
-              <FullImage
-                style={" mb-2"}
-                height={"h-40"}
-                textBottom={"bottom-9"}
-                image={content[2].Image}
-                heading={content[2].Name}
-                buttonText={"Explore"}
-              />
-            ) : (
-              <div className="blank-image"></div> // Blank div when image is not available
-            )}
-          </div>
-          <div className="item-small">
-            {content[3] && content[3].Image ? (
-              <FullImage
-                height={"h-40"}
-                textBottom={"bottom-9"}
-                image={content[3].Image}
-                heading={content[3].Name}
+                linkTo={AllComics}
                 buttonText={"Explore"}
               />
             ) : (
@@ -61,12 +35,73 @@ const Page5 = ({ content }) => {
           </div>
         </div>
         <div className="side1-container">
+          <div className="">
+            <div className="item-small">
+              {content[2] && content[2].Image ? (
+                <FullImage
+                  height={" h-40"}
+                  textBottom={"bottom-9"}
+                  image={content[2].Image}
+                  heading={content[2].Name}
+                  linkTo={AllComics}
+                  buttonText={"Explore"}
+                />
+              ) : (
+                <div className="blank-image"></div> // Blank div when image is not available
+              )}
+            </div>
+            <div className="item-small">
+              {content[3] && content[3].Image ? (
+                <FullImage
+                  height={"h-40"}
+                  textBottom={"bottom-9"}
+                  image={content[3].Image}
+                  heading={content[3].Name}
+                  buttonText={"Explore"}
+                />
+              ) : (
+                <div className="blank-image"></div> // Blank div when image is not available
+              )}
+            </div>
+          </div>
+          <div className="">
+            <div className="item-small">
+              {content[4] && content[4].Image ? (
+                <FullImage
+                  height={"h-40"}
+                  textBottom={"bottom-9"}
+                  image={content[4].Image}
+                  heading={content[4].Name}
+                  buttonText={"Explore"}
+                />
+              ) : (
+                <div className="blank-image"></div> // Blank div when image is not available
+              )}
+            </div>
+            <div className="item-small">
+              {content[5] && content[5].Image ? (
+                <FullImage
+                  height={"h-40"}
+                  textBottom={"bottom-9"}
+                  image={content[5].Image}
+                  heading={content[5].Name}
+                  buttonText={"Explore"}
+                />
+              ) : (
+                <div className="blank-image"></div> // Blank div when image is not available
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="side1-container">
           <div className="item">
-            {content[4] && content[4].Image ? (
+            {content[6] && content[6].Image ? (
               <FullImage
+                fit={"object-cover"}
                 textBottom={"bottom-32"}
-                image={content[4].Image}
-                heading={content[4].Name}
+                image={content[6].Image}
+                heading={content[6].Name}
                 buttonText={"Explore"}
               />
             ) : (
@@ -74,11 +109,12 @@ const Page5 = ({ content }) => {
             )}
           </div>
           <div className="item">
-            {content[5] && content[5].Image ? (
+            {content[7] && content[7].Image ? (
               <FullImage
+                fit={"object-cover"}
                 textBottom={"bottom-32"}
-                image={content[5].Image}
-                heading={content[5].Name}
+                image={content[7].Image}
+                heading={content[7].Name}
                 buttonText={"Explore"}
               />
             ) : (

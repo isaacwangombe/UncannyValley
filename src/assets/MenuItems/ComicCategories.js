@@ -12,11 +12,16 @@ import Idw from "./../ComicCategoryImages/Idw.jpg"
 import Kolanut from "./../ComicCategoryImages/Kolanut.jpg"
 import Konkret from "./../ComicCategoryImages/Konkret.jpg"
 import Vertigo from "./../ComicCategoryImages/Vertigo.jpg"
+import All from "./../ComicCategoryImages/All.jpg"
 
 
 
 
 const ComicCategories = [
+  { Id: "",
+    Name: "All",
+    Image: All
+  },
   { Id: 1,
     Name: "DC",
     Image: DC
@@ -77,14 +82,7 @@ const ComicCategories = [
     Name: "Uncanny Valley",
     Image: ""
   },
-  { Id: 16,
-    Name: "All",
-    Image: All
-  },
-  { Id: 17,
-    Name: "DC",
-    Image: ""
-  },
+
 ]
 
 export default ComicCategories;

@@ -13,7 +13,7 @@ import NavbarWithSubmenu from "../../../components/navbar/navbar";
 const ComicSelection = () => {
   const isSmallScreen = useScreenSize(768);
 
-  const nameCounts = [7, 6, 8];
+  const nameCounts = [7, 8];
 
   const getImagesForPage = (startIndex, count) => {
     return ComicCategories.slice(startIndex, startIndex + count);
@@ -22,181 +22,103 @@ const ComicSelection = () => {
   return (
     <div className="">
       <NavbarWithSubmenu />
-      <div className="">
-        {" "}
-        {Array.from({
-          length: Math.ceil(ComicCategories.length / Math.min(...nameCounts)),
-        }).map((_, pageIndex) => {
-          const namesToShow = nameCounts[pageIndex % nameCounts.length];
-          const imagesForPage = getImagesForPage(
-            0,
-            Math.min(namesToShow, ComicCategories.length)
-          );
+      {isSmallScreen ? (
+        <div className="">
+          {Array.from({
+            length: Math.ceil(ComicCategories.length / Math.min(...nameCounts)),
+          }).map((_, pageIndex) => {
+            // Calculate the total number of items shown before this page
+            const startIndex = nameCounts
+              .slice(0, pageIndex)
+              .reduce((sum, count) => sum + count, 0);
 
-          const PageComponent = {
-            7: Page6,
-            6: Page5,
-          }[namesToShow];
+            // Determine how many names/images to show on this page
+            const namesToShow = nameCounts[pageIndex % nameCounts.length];
 
-          return (
-            <div className="small-screen-cont" key={pageIndex}>
-              {PageComponent && <PageComponent content={imagesForPage} />}
-            </div>
-          );
-        })}
-      </div>
-      <div className="cont">
-        <HTMLFlipBook
-          width={500}
-          height={1000}
-          size="stretch"
-          showCover={false}
-          usePortrait={false}
-          swipeDistance={0}
-          // autoSize={false}
-        >
-          <div className="screen2-container">
-            <div className="">
-              <div className="item-large mb-1">
-                <FullImage
-                  // style={" mb-2"}
-                  height={"h-92"}
-                  textBottom={"bottom-9"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"All"}
-                  buttonText={"Explore"}
-                />
-              </div>
-            </div>
-            <div className="side1-container">
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"DC"}
-                  buttonText={"Explore"}
-                />
-              </div>
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"Marvel"}
-                  buttonText={"Explore"}
-                />
-              </div>
-            </div>
+            // Get the images for the current page
+            const imagesForPage = getImagesForPage(
+              startIndex,
+              Math.min(namesToShow, ComicCategories.length - startIndex) // Ensure we don't go past the length
+            );
 
-            <div className="side1-container">
-              <div className="">
-                <div className="item-small">
-                  <FullImage
-                    height={" h-40"}
-                    textBottom={"bottom-9"}
-                    image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    heading={"Image"}
-                    buttonText={"Explore"}
-                  />
-                </div>
-                <div className="item-small">
-                  <FullImage
-                    height={"h-40"}
-                    textBottom={"bottom-9"}
-                    image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    heading={"Dark Horse"}
-                    buttonText={"Explore"}
-                  />
-                </div>
+            // Choose the correct PageComponent based on how many names to show
+            const PageComponent = {
+              7: Page6,
+              8: Page5,
+            }[namesToShow];
+
+            return (
+              <div className="small-screen-cont" key={pageIndex}>
+                {PageComponent && <PageComponent content={imagesForPage} />}
               </div>
-              <div className="">
-                <div className="item-small">
-                  <FullImage
-                    height={"h-40"}
-                    textBottom={"bottom-9"}
-                    image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    heading={"Wildstorm"}
-                    buttonText={"Explore"}
-                  />
-                </div>
-                <div className="item-small">
-                  <FullImage
-                    height={"h-40"}
-                    textBottom={"bottom-9"}
-                    image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    heading={"Dynamite"}
-                    buttonText={"Explore"}
-                  />
-                </div>
-              </div>
-            </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="">
+          <div>
+            <Button
+              color="blue"
+              className="mx-10"
+              onClick={() => book.current?.pageFlip().flipPrev()}
+            >
+              Prev page
+            </Button>
+            <Button
+              color="blue"
+              className="mx-10"
+              onClick={() => book.current?.pageFlip().flipNext()}
+            >
+              Next page
+            </Button>
           </div>
-          <div className="screen2-container">
-            <div className="side1-container">
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"Powerverse"}
-                  buttonText={"Explore"}
-                />
-              </div>
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"133ART"}
-                  buttonText={"Explore"}
-                />
-              </div>
-            </div>
-            <div className="">
-              <div className="item-small">
-                <FullImage
-                  style={" mb-2"}
-                  height={"h-40"}
-                  textBottom={"bottom-9"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"Vertigo"}
-                  buttonText={"Explore"}
-                />
-              </div>
-              <div className="item-small">
-                <FullImage
-                  height={"h-40"}
-                  textBottom={"bottom-9"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"DC"}
-                  buttonText={"Explore"}
-                />
-              </div>
-            </div>
-            <div className="side1-container">
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  // image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"Powerverse"}
-                  buttonText={"Explore"}
-                />
-              </div>
-              <div className="item">
-                <FullImage
-                  style={""}
-                  textBottom={"bottom-32"}
-                  image="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                  heading={"133ART"}
-                  buttonText={"Explore"}
-                />
-              </div>
-            </div>
+          <div className="cont">
+            <HTMLFlipBook
+              width={500}
+              height={1000}
+              size="stretch"
+              showCover={false}
+              usePortrait={true}
+              swipeDistance={0}
+              useMouseEvents={false}
+
+              // autoSize={false}
+            >
+              {Array.from({
+                length: Math.ceil(
+                  ComicCategories.length / Math.min(...nameCounts)
+                ),
+              }).map((_, pageIndex) => {
+                // Calculate the total number of items shown before this page
+                const startIndex = nameCounts
+                  .slice(0, pageIndex)
+                  .reduce((sum, count) => sum + count, 0);
+
+                // Determine how many names/images to show on this page
+                const namesToShow = nameCounts[pageIndex % nameCounts.length];
+
+                // Get the images for the current page
+                const imagesForPage = getImagesForPage(
+                  startIndex,
+                  Math.min(namesToShow, ComicCategories.length - startIndex) // Ensure we don't go past the length
+                );
+
+                // Choose the correct PageComponent based on how many names to show
+                const PageComponent = {
+                  7: Page6,
+                  8: Page5,
+                }[namesToShow];
+
+                return (
+                  <div className="" key={pageIndex}>
+                    {PageComponent && <PageComponent content={imagesForPage} />}
+                  </div>
+                );
+              })}
+            </HTMLFlipBook>
           </div>
-        </HTMLFlipBook>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
