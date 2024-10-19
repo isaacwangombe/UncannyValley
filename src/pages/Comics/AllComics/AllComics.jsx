@@ -78,22 +78,25 @@ const AllComics = ({ Category }) => {
   return (
     <div>
       <NavbarWithSubmenu />
+
+      {/* Search and Filter Section */}
       <div className="search-container">
-        <div className=" w-72  mx-5">
+        <div className="w-72 mx-5">
           <Select
             label="Filter Categories"
             value={categoryFilter}
-            onChange={(value) => setCategoryFilter(value)}
-            className="category-select  "
+            onChange={setCategoryFilter}
+            className="category-select"
           >
             <Option value="">All</Option>
-            {uniqueCategories.map((category) => (
-              <Option key={category.Id} value={category.Id}>
-                {category.Name}
+            {uniqueCategories.map(({ Id, Name }) => (
+              <Option key={Id} value={Id}>
+                {Name}
               </Option>
             ))}
           </Select>
         </div>
+
         <div className="w-72 mx-5">
           <Input
             label="Search Comics"
@@ -110,10 +113,7 @@ const AllComics = ({ Category }) => {
         {selectedCategory ? selectedCategory.Name : "All"} Comics
       </Typography>
 
-      {/* Search input */}
-
-      {/* Category filter dropdown */}
-
+      {/* Comic Display Section */}
       {isSmallScreen ? (
         <div>
           {Array.from({
@@ -121,44 +121,23 @@ const AllComics = ({ Category }) => {
               filteredComicImages.length / Math.min(...nameCounts)
             ),
           }).map((_, pageIndex) => {
-            // Reset currentIndex and remainingItems for filtered results
-            let currentIndex = 0;
-            let remainingItems = filteredComicImages.length;
-
-            const className = classNames[pageIndex % classNames.length];
             const namesToShow = nameCounts[pageIndex % nameCounts.length];
-
-            const adjustedNamesToShow = Math.min(namesToShow, remainingItems);
             const imagesForPage = getImagesForPage(
-              currentIndex,
-              adjustedNamesToShow
+              0,
+              Math.min(namesToShow, filteredComicImages.length)
             );
 
-            let PageComponent;
-            switch (namesToShow) {
-              case 7:
-                PageComponent = Page1;
-                break;
-              case 6:
-                PageComponent = Page2;
-                break;
-              case 8:
-                PageComponent = Page3;
-                break;
-              default:
-                return null;
-            }
+            const PageComponent = {
+              7: Page1,
+              6: Page2,
+              8: Page3,
+            }[namesToShow];
 
-            const pageComponent = (
-              <div className="small-screen-cont">
-                <PageComponent key={pageIndex} content={imagesForPage} />
+            return (
+              <div className="small-screen-cont" key={pageIndex}>
+                {PageComponent && <PageComponent content={imagesForPage} />}
               </div>
             );
-
-            currentIndex += adjustedNamesToShow;
-            remainingItems -= adjustedNamesToShow;
-
-            return pageComponent;
           })}
         </div>
       ) : (
@@ -167,22 +146,14 @@ const AllComics = ({ Category }) => {
             <Button
               color="blue"
               className="mx-10"
-              onClick={() => {
-                if (book.current && book.current.pageFlip) {
-                  book.current.pageFlip().flipPrev(); // Safely call flipPrev
-                }
-              }}
+              onClick={() => book.current?.pageFlip().flipPrev()}
             >
               Prev page
             </Button>
             <Button
               color="blue"
               className="mx-10"
-              onClick={() => {
-                if (book.current && book.current.pageFlip) {
-                  book.current.pageFlip().flipNext(); // Safely call flipNext
-                }
-              }}
+              onClick={() => book.current?.pageFlip().flipNext()}
             >
               Next page
             </Button>
@@ -203,47 +174,23 @@ const AllComics = ({ Category }) => {
                   filteredComicImages.length / Math.min(...nameCounts)
                 ),
               }).map((_, pageIndex) => {
-                // Reset currentIndex and remainingItems for filtered results
-                let currentIndex = 0;
-                let remainingItems = filteredComicImages.length;
-
-                const className = classNames[pageIndex % classNames.length];
                 const namesToShow = nameCounts[pageIndex % nameCounts.length];
-
-                const adjustedNamesToShow = Math.min(
-                  namesToShow,
-                  remainingItems
-                );
                 const imagesForPage = getImagesForPage(
-                  currentIndex,
-                  adjustedNamesToShow
+                  0,
+                  Math.min(namesToShow, filteredComicImages.length)
                 );
 
-                let PageComponent;
-                switch (namesToShow) {
-                  case 7:
-                    PageComponent = Page1;
-                    break;
-                  case 6:
-                    PageComponent = Page2;
-                    break;
-                  case 8:
-                    PageComponent = Page3;
-                    break;
-                  default:
-                    return null;
-                }
+                const PageComponent = {
+                  7: Page1,
+                  6: Page2,
+                  8: Page3,
+                }[namesToShow];
 
-                const pageComponent = (
-                  <div className="">
-                    <PageComponent key={pageIndex} content={imagesForPage} />
+                return (
+                  <div key={pageIndex}>
+                    {PageComponent && <PageComponent content={imagesForPage} />}
                   </div>
                 );
-
-                currentIndex += adjustedNamesToShow;
-                remainingItems -= adjustedNamesToShow;
-
-                return pageComponent;
               })}
             </HTMLFlipBook>
           </div>

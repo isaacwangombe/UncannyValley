@@ -1,42 +1,57 @@
 import React from "react";
+import "./Page6.css";
 import FullImage from "../../ImageContainer/FullImage";
 
-const Page5 = ({ content }) => {
+const Page6 = ({ content }) => {
   return (
-    <div>
-      <div className="screen2-container">
-        <div className="side1-container">
-          <div className="item">
-            {content[0] && content[0].Image ? (
-              <FullImage
-                textBottom={"bottom-32"}
-                image={content[0].Image}
-                heading={content[0].Name}
-                buttonText={"Explore"}
-              />
-            ) : (
-              <div className="blank-image"></div> // Blank div when image is not available
-            )}
-          </div>
-          <div className="item">
-            {content[1] && content[1].Image ? (
-              <FullImage
-                textBottom={"bottom-32"}
-                image={content[1].Image}
-                heading={content[1].Name}
-                buttonText={"Explore"}
-              />
-            ) : (
-              <div className="blank-image"></div> // Blank div when image is not available
-            )}
-          </div>
+    <div className="screen2-container">
+      <div className="">
+        <div className="item-large mb-1">
+          {content[15] && content[15].Image ? (
+            <FullImage
+              textBottom={"bottom-9"}
+              image={content[15].Image}
+              heading={content[15].Name}
+              buttonText={"Explore"}
+            />
+          ) : (
+            <div className="blank-image"></div> // Blank div when image is not available
+          )}
         </div>
+      </div>
+      <div className="side1-container">
+        <div className="item">
+          {content[0] && content[0].Image ? (
+            <FullImage
+              textBottom={"bottom-32"}
+              image={content[0].Image}
+              heading={content[0].Name}
+              buttonText={"Explore"}
+            />
+          ) : (
+            <div className="blank-image"></div> // Blank div when image is not available
+          )}
+        </div>
+        <div className="item">
+          {content[1] && content[1].Image ? (
+            <FullImage
+              textBottom={"bottom-32"}
+              image={content[1].Image}
+              heading={content[1].Name}
+              buttonText={"Explore"}
+            />
+          ) : (
+            <div className="blank-image"></div> // Blank div when image is not available
+          )}
+        </div>
+      </div>
+
+      <div className="side1-container">
         <div className="">
           <div className="item-small">
             {content[2] && content[2].Image ? (
               <FullImage
-                style={" mb-2"}
-                height={"h-40"}
+                height={" h-40"}
                 textBottom={"bottom-9"}
                 image={content[2].Image}
                 heading={content[2].Name}
@@ -60,10 +75,11 @@ const Page5 = ({ content }) => {
             )}
           </div>
         </div>
-        <div className="side1-container">
-          <div className="item">
+        <div className="">
+          <div className="item-small">
             {content[4] && content[4].Image ? (
               <FullImage
+                height={"h-40"}
                 textBottom={"bottom-32"}
                 image={content[4].Image}
                 heading={content[4].Name}
@@ -73,9 +89,10 @@ const Page5 = ({ content }) => {
               <div className="blank-image"></div> // Blank div when image is not available
             )}
           </div>
-          <div className="item">
+          <div className="item-small">
             {content[5] && content[5].Image ? (
               <FullImage
+                height={"h-40"}
                 textBottom={"bottom-32"}
                 image={content[5].Image}
                 heading={content[5].Name}
@@ -91,4 +108,4 @@ const Page5 = ({ content }) => {
   );
 };
 
-export default Page5;
+export default Page6;
