@@ -14,7 +14,7 @@ const Page6 = ({ content }) => {
               textBottom={"bottom-32"}
               image={content[0].Image}
               heading={content[0].Name}
-              linkTo={AllComics}
+              linkTo={"/all-comics"}
               buttonText={"Explore"}
             />
           ) : (

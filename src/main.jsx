@@ -15,6 +15,10 @@ import AllComics from "./pages/Comics/AllComics/AllComics.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <NewHomePage />,
+  },
+  {
+    path: "comic-categories",
     element: <ComicSelection />,
   },
   {

@@ -45,13 +45,11 @@ const Homepage = () => {
                   of superheroes, fantasy, or original African stories, we have
                   something for every comic lover.
                 </Typography>
-                <li>
-                  <Link to="all-comics">
-                    <Button color="blue" className="mt-4 ">
-                      Explore
-                    </Button>
-                  </Link>
-                </li>
+                <Link to="all-comics">
+                  <Button color="blue" className="mt-4 ">
+                    Explore
+                  </Button>
+                </Link>
               </div>
             </figcaption>
           </figure>

@@ -9,6 +9,7 @@ import African from "../../assets/HomepageImages/African.jpg";
 import Clothes from "../../assets/HomepageImages/Clothes.jpg";
 import Publish from "../../assets/HomepageImages/Publish.jpg";
 import NavbarWithSubmenu from "../../components/navbar/navbar";
+import AllComics from "../Comics/AllComics/AllComics";
 import PageFlip from "../pageFlip/pageFlip";
 
 const NewHomePage = () => {
@@ -42,9 +43,11 @@ const NewHomePage = () => {
                 </Typography>
                 <div className="">
                   {/* <Link to="all-comics"> */}
-                  <Button color="blue" className="mt-4 ">
-                    Explore
-                  </Button>
+                  <Link to={"/comic-categories"}>
+                    <Button color="blue" className="mt-4 ">
+                      Explore
+                    </Button>
+                  </Link>
                   {/* </Link> */}
                 </div>
               </div>
