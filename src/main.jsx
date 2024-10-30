@@ -13,6 +13,7 @@ import NewHomePage from "./pages/NewHomePage/NewHomePage";
 import ComicSelection from "./pages/Comics/ComicSelection/ComicSelection";
 import AllComics from "./pages/Comics/AllComics/AllComics.jsx";
 // import NewHomePage from "./pages/NewHomePage/NewHomePage copy.jsx";
+import OpeningPage from "./components/ComicPages/OpeningPage/OpeningPage.jsx";
 
 const router = createBrowserRouter([
   {

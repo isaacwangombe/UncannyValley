@@ -84,7 +84,7 @@ const ComicSelection = () => {
     return itemsCovered < ComicCategories.length ? totalPages + 1 : totalPages;
   }, 0);
   return (
-    <div className="">
+    <div className="fade-in">
       <NavbarWithSubmenu />
       {isSmallScreen ? (
         <div className="">

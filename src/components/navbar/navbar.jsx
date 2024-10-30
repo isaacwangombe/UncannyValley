@@ -13,6 +13,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import "./navbar.css";
 import RightDrawer from "../drawer/drawer";
 // import { faHouse } from "@awesome.me/kit-KIT_CODE/icons/classic/solid";
+import Logo from "./../../assets/UncannyLogo.png";
 
 const NavbarWithSubmenu = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -92,8 +93,10 @@ const NavbarWithSubmenu = () => {
               <Typography
                 as="a"
                 href="#"
-                className="mr-4 cursor-pointer py-1.5 font-medium mb-2"
+                className="mr-4 cursor-pointer py-1.5 text-3xl mb-2 eater-regular flex"
+                color="blue-gray"
               >
+                <img src={Logo} alt="" className="w-12 mr-5" />
                 Uncanny Valley Comics
               </Typography>
             </Link>
@@ -103,7 +106,7 @@ const NavbarWithSubmenu = () => {
           </div>
           <div className="hidden lg:block mb-4">{navList}</div>
 
-          <div className="hidden items-center gap-x-2 lg:flex  mb-4">
+          {/* <div className="hidden items-center gap-x-2 lg:flex  mb-4">
             <div className="relative flex w-full gap-2 md:w-max">
               <Input
                 type="search"
@@ -141,12 +144,12 @@ const NavbarWithSubmenu = () => {
             <Button size="md" className="rounded-lg ">
               Search
             </Button>
-          </div>
+          </div> */}
         </div>
         <Collapse open={openNav}>
           <div className="container mx-auto">
             {navList}
-            <div className="flex flex-col gap-x-2 sm:flex-row sm:items-center">
+            {/* <div className="flex flex-col gap-x-2 sm:flex-row sm:items-center">
               <div className="relative w-full gap-2 md:w-max">
                 <Input
                   type="search"
@@ -184,7 +187,7 @@ const NavbarWithSubmenu = () => {
               <Button size="md" className="mt-1 rounded-lg sm:mt-0">
                 Search
               </Button>
-            </div>
+            </div> */}
           </div>
         </Collapse>
       </Navbar>

@@ -15,7 +15,7 @@ import Vertigo from "./../ComicCategoryImages/Vertigo.jpg";
 import All from "./../ComicCategoryImages/All.jpg";
 
 const ComicCategories = [
-  { Id: "", Name: "Menu", Image: All },
+  { Id: "", Name: "All", Image: All },
   { Id: "", Name: "All", Image: All },
   { Id: 1, Name: "DC", Image: DC },
   { Id: 2, Name: "Marvel", Image: Marvel },

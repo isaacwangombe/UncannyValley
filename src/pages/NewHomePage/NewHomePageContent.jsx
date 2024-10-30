@@ -28,7 +28,7 @@ const NewHomePageContent = ({ shrunk, clickedButton }) => {
             />
             <figcaption className="absolute bottom-4 left-2/4 flex   -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
               <div>
-                <Typography className="heading-text" color="blue-gray">
+                <Typography className="heading-text " color="blue-gray">
                   Welcome to Uncanny Valley Comics{" "}
                 </Typography>
                 <Typography color="" className="text-normal">
@@ -144,7 +144,7 @@ const NewHomePageContent = ({ shrunk, clickedButton }) => {
               src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
               alt="nature image"
             />
-            <figcaption className="absolute bottom-1 left-2/4 flex  -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
+            <figcaption className="absolute bottom-4 left-2/4 flex  -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
               <div>
                 <Typography
                   variant="h5"
@@ -153,7 +153,7 @@ const NewHomePageContent = ({ shrunk, clickedButton }) => {
                 >
                   Contact Us
                 </Typography>
-                <Button color="blue" className=" ">
+                <Button color="blue" className="mt-2 ">
                   Explore
                 </Button>
               </div>

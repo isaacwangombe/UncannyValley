@@ -17,19 +17,32 @@ import Page2 from "./../../../components/ComicPages/Page2/Page2";
 import Page3 from "./../../../components/ComicPages/Page3/Page3";
 import useScreenSize from "../../../components/CustomHooks/useScreenSize";
 import ComicCategories from "./../../../assets/MenuItems/ComicCategories";
+import OpeningPage from "../../../components/ComicPages/OpeningPage/OpeningPage";
 
 const AllComics = ({ Category }) => {
   const isSmallScreen = useScreenSize(768);
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const [categoryFilter, setCategoryFilter] = useState(""); // State for category filter
+  // const [nameCounts, setNameCounts] = useState([]);
   const selectedCategory = ComicCategories.find(
     (category) => category.Id == categoryFilter
   );
 
   const book = useRef(null);
 
-  const classNames = ["page-1", "page-2", "page-3"];
   const nameCounts = [7, 6, 8];
+  useEffect(() => {
+    const flipPage = () => {
+      if (book.current && typeof book.current.pageFlip === "function") {
+        book.current.pageFlip().flipNext();
+      }
+    };
+
+    // Slight delay to allow book.current to initialize
+    const timeoutId = setTimeout(flipPage, 2000);
+    // setFirstLoad(false);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const fuseOptions = {
     keys: ["Name"],
@@ -76,7 +89,7 @@ const AllComics = ({ Category }) => {
   ];
 
   return (
-    <div>
+    <div className="fade-in">
       <NavbarWithSubmenu />
 
       {/* Search and Filter Section */}
@@ -109,7 +122,7 @@ const AllComics = ({ Category }) => {
         </div>
       </div>
 
-      <Typography variant="h2" className="m-10">
+      <Typography variant="h2" className="m-10 eater-regular" color="blue-gray">
         {selectedCategory ? selectedCategory.Name : "All"} Comics
       </Typography>
 
@@ -168,27 +181,43 @@ const AllComics = ({ Category }) => {
               swipeDistance={0}
               useMouseEvents={false}
               ref={book}
+              showCover={true}
             >
               {Array.from({
                 length: Math.ceil(
                   filteredComicImages.length / Math.min(...nameCounts)
                 ),
               }).map((_, pageIndex) => {
+                // Determine how many names/images to show for the current page
                 const namesToShow = nameCounts[pageIndex % nameCounts.length];
+
+                // Adjust the starting index for images based on pageIndex, so that page 0 shows only once
                 const imagesForPage = getImagesForPage(
-                  0,
-                  Math.min(namesToShow, filteredComicImages.length)
+                  pageIndex === 0 ? 0 : pageIndex * namesToShow,
+                  Math.min(
+                    namesToShow,
+                    filteredComicImages.length - pageIndex * namesToShow
+                  )
                 );
 
-                const PageComponent = {
-                  7: Page1,
-                  6: Page2,
-                  8: Page3,
-                }[namesToShow];
+                // Conditionally select the page component
+                const PageComponent =
+                  pageIndex === 0
+                    ? OpeningPage // Show only once for pageIndex 0
+                    : {
+                        7: Page1,
+                        6: Page2,
+                        8: Page3,
+                      }[namesToShow];
 
                 return (
                   <div key={pageIndex}>
-                    {PageComponent && <PageComponent content={imagesForPage} />}
+                    {PageComponent && (
+                      <PageComponent
+                        content={imagesForPage}
+                        selectedCategory={selectedCategory.Name}
+                      />
+                    )}
                   </div>
                 );
               })}

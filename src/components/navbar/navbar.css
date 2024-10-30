@@ -11,3 +11,8 @@ nav {
   display: flex;
   justify-content: space-between;
 }
+
+.site-name {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
