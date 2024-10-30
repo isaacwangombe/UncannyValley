@@ -1,0 +1,14 @@
+/* src/components/CustomComponents/FadeTransition.css */
+.fade-wrapper {
+  transition: opacity 0.5s ease; /* Smooth fade transition */
+  position: relative; /* Position for stacking context */
+  opacity: 1; /* Start fully visible */
+}
+
+.fade-in {
+  opacity: 1; /* Fully visible */
+}
+
+.fade-out {
+  opacity: 0; /* Fully invisible */
+}

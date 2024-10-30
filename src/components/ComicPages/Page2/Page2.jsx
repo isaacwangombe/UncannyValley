@@ -3,7 +3,7 @@ import "./Page2.css";
 import { Typography } from "@material-tailwind/react";
 import FullImage from "../../ImageContainer/FullImage";
 
-const PageTwo = ({ content }) => {
+const Page2 = ({ content }) => {
   return (
     <div class="screen1-container">
       <div class="screen1-cont1">
@@ -94,4 +94,4 @@ const PageTwo = ({ content }) => {
   );
 };
 
-export default PageTwo;
+export default Page2;

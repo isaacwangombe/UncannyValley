@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import Homepage from "./pages/homepage/homepage";
+import { AnimatePresence } from "framer-motion";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -11,11 +12,12 @@ import { ThemeProvider } from "@material-tailwind/react";
 import NewHomePage from "./pages/NewHomePage/NewHomePage";
 import ComicSelection from "./pages/Comics/ComicSelection/ComicSelection";
 import AllComics from "./pages/Comics/AllComics/AllComics.jsx";
+// import NewHomePage from "./pages/NewHomePage/NewHomePage copy.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NewHomePage />,
+    element: <ComicSelection />,
   },
   {
     path: "comic-categories",
@@ -29,8 +31,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <AnimatePresence>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </AnimatePresence>
   </StrictMode>
 );

@@ -6,21 +6,19 @@ import AllComics from "../../../pages/Comics/AllComics/AllComics";
 const Page6 = ({ content }) => {
   return (
     <div className="screen2-container">
-      <div className="">
-        <div className="item-large mb-1">
-          {content[0] && content[0].Image ? (
-            <FullImage
-              fit={"object-cover"}
-              textBottom={"bottom-32"}
-              image={content[0].Image}
-              heading={content[0].Name}
-              linkTo={"/all-comics"}
-              buttonText={"Explore"}
-            />
-          ) : (
-            <div className="blank-image"></div> // Blank div when image is not available
-          )}
-        </div>
+      <div className="item-large">
+        {content[0] && content[0].Image ? (
+          <FullImage
+            fit={"object-cover"}
+            textBottom={"bottom-32"}
+            image={content[0].Image}
+            heading={content[0].Name}
+            linkTo={"/all-comics"}
+            buttonText={"Explore"}
+          />
+        ) : (
+          <div className="blank-image"></div> // Blank div when image is not available
+        )}
       </div>
       <div className="side1-container">
         <div className="item">
