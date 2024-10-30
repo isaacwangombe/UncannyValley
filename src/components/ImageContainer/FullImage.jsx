@@ -13,6 +13,7 @@ const FullImage = ({
   description,
   price,
   linkTo,
+  state,
   buttonText,
 }) => {
   return (
@@ -50,7 +51,7 @@ const FullImage = ({
             {price}
           </Typography>
           {linkTo ? (
-            <Link to={linkTo}>
+            <Link to={linkTo} state={state}>
               <Button color="blue" className="mt-4 ">
                 {buttonText}
               </Button>

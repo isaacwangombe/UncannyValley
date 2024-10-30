@@ -2,7 +2,7 @@ import React from "react";
 import FullImage from "../../ImageContainer/FullImage";
 import AllComics from "../../../pages/Comics/AllComics/AllComics";
 
-const Page5 = ({ content }) => {
+const Page5 = ({ content, linkTo }) => {
   return (
     <div>
       <div className="screen2-container">
@@ -13,7 +13,8 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[0].Image}
                 heading={content[0].Name}
-                linkTo={AllComics}
+                linkTo={linkTo}
+                state={{ Category: content[0].Id }}
                 buttonText={"Explore"}
               />
             ) : (
@@ -26,7 +27,8 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[1].Image}
                 heading={content[1].Name}
-                linkTo={AllComics}
+                linkTo={linkTo}
+                state={{ Category: content[1].Id }}
                 buttonText={"Explore"}
               />
             ) : (
@@ -43,7 +45,8 @@ const Page5 = ({ content }) => {
                   textBottom={"bottom-9"}
                   image={content[2].Image}
                   heading={content[2].Name}
-                  linkTo={AllComics}
+                  linkTo={linkTo}
+                  state={{ Category: content[2].Id }}
                   buttonText={"Explore"}
                 />
               ) : (
@@ -57,6 +60,8 @@ const Page5 = ({ content }) => {
                   textBottom={"bottom-9"}
                   image={content[3].Image}
                   heading={content[3].Name}
+                  linkTo={linkTo}
+                  state={{ Category: content[3].Id }}
                   buttonText={"Explore"}
                 />
               ) : (
@@ -72,6 +77,8 @@ const Page5 = ({ content }) => {
                   textBottom={"bottom-9"}
                   image={content[4].Image}
                   heading={content[4].Name}
+                  linkTo={linkTo}
+                  state={{ Category: content[4].Id }}
                   buttonText={"Explore"}
                 />
               ) : (
@@ -85,6 +92,8 @@ const Page5 = ({ content }) => {
                   textBottom={"bottom-9"}
                   image={content[5].Image}
                   heading={content[5].Name}
+                  linkTo={linkTo}
+                  state={{ Category: content[5].Id }}
                   buttonText={"Explore"}
                 />
               ) : (
@@ -102,6 +111,8 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[6].Image}
                 heading={content[6].Name}
+                linkTo={linkTo}
+                state={{ Category: content[6].Id }}
                 buttonText={"Explore"}
               />
             ) : (
@@ -115,6 +126,8 @@ const Page5 = ({ content }) => {
                 textBottom={"bottom-32"}
                 image={content[7].Image}
                 heading={content[7].Name}
+                linkTo={linkTo}
+                state={{ Category: content[7].Id }}
                 buttonText={"Explore"}
               />
             ) : (

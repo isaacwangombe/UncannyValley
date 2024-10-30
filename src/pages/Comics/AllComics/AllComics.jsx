@@ -18,29 +18,33 @@ import Page3 from "./../../../components/ComicPages/Page3/Page3";
 import useScreenSize from "../../../components/CustomHooks/useScreenSize";
 import ComicCategories from "./../../../assets/MenuItems/ComicCategories";
 import OpeningPage from "../../../components/ComicPages/OpeningPage/OpeningPage";
+import { useLocation } from "react-router-dom";
 
-const AllComics = ({ Category }) => {
+const AllComics = () => {
+  const location = useLocation();
   const isSmallScreen = useScreenSize(768);
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const [categoryFilter, setCategoryFilter] = useState(""); // State for category filter
-  // const [nameCounts, setNameCounts] = useState([]);
   const selectedCategory = ComicCategories.find(
     (category) => category.Id == categoryFilter
   );
 
   const book = useRef(null);
+  const nameCounts = [1, 7, 6, 8];
 
-  const nameCounts = [7, 6, 8];
+  useEffect(() => {
+    if (location.state?.Category) {
+      setCategoryFilter(location.state.categoryFilter);
+    }
+  }, [location.state]);
+
   useEffect(() => {
     const flipPage = () => {
       if (book.current && typeof book.current.pageFlip === "function") {
         book.current.pageFlip().flipNext();
       }
     };
-
-    // Slight delay to allow book.current to initialize
     const timeoutId = setTimeout(flipPage, 2000);
-    // setFirstLoad(false);
     return () => clearTimeout(timeoutId);
   }, []);
 
@@ -58,8 +62,6 @@ const AllComics = ({ Category }) => {
     const matchesCategory = categoryFilter
       ? comic.Category === Number(categoryFilter)
       : true; // If no category selected, include all
-
-    console.log("Comic Category:", comic.Category);
 
     return matchesSearchTerm && matchesCategory;
   });
@@ -136,8 +138,11 @@ const AllComics = ({ Category }) => {
           }).map((_, pageIndex) => {
             const namesToShow = nameCounts[pageIndex % nameCounts.length];
             const imagesForPage = getImagesForPage(
-              0,
-              Math.min(namesToShow, filteredComicImages.length)
+              pageIndex * Math.min(namesToShow, filteredComicImages.length),
+              Math.min(
+                namesToShow,
+                filteredComicImages.length - pageIndex * namesToShow
+              )
             );
 
             const PageComponent = {
@@ -188,28 +193,26 @@ const AllComics = ({ Category }) => {
                   filteredComicImages.length / Math.min(...nameCounts)
                 ),
               }).map((_, pageIndex) => {
-                // Determine how many names/images to show for the current page
                 const namesToShow = nameCounts[pageIndex % nameCounts.length];
+                // Correcting the startIndex calculation
+                let startIndex = 0;
+                for (let i = 0; i < pageIndex; i++) {
+                  startIndex += nameCounts[i % nameCounts.length];
+                }
 
-                // Adjust the starting index for images based on pageIndex, so that page 0 shows only once
                 const imagesForPage = getImagesForPage(
-                  pageIndex === 0 ? 0 : pageIndex * namesToShow,
-                  Math.min(
-                    namesToShow,
-                    filteredComicImages.length - pageIndex * namesToShow
-                  )
+                  startIndex,
+                  Math.min(namesToShow, filteredComicImages.length - startIndex)
                 );
 
-                // Conditionally select the page component
                 const PageComponent =
                   pageIndex === 0
-                    ? OpeningPage // Show only once for pageIndex 0
+                    ? OpeningPage
                     : {
                         7: Page1,
                         6: Page2,
                         8: Page3,
                       }[namesToShow];
-
                 return (
                   <div key={pageIndex}>
                     {PageComponent && (
